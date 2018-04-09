@@ -4,12 +4,8 @@ import (
 	"container/heap"
 )
 
-type redgeLooseLesser interface{ Less(x interface{}) bool }
 type redgeIterMerge struct{ h redgeIterHeap }
 
-func redgeNew(nexts ...func() (info rEdge, ok bool)) *redgeIterMerge {
-	return redgeIterMergeFrom(nexts...)
-}
 func redgeIterMergeFrom(nexts ...func() (info rEdge, ok bool)) *redgeIterMerge {
 	h := make(redgeIterHeap, 0, len(nexts))
 	for _, next := range nexts {

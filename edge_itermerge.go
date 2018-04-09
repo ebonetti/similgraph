@@ -4,12 +4,8 @@ import (
 	"container/heap"
 )
 
-type edgeLooseLesser interface{ Less(x interface{}) bool }
 type edgeIterMerge struct{ h edgeIterHeap }
 
-func edgeNew(nexts ...func() (info Edge, ok bool)) *edgeIterMerge {
-	return edgeIterMergeFrom(nexts...)
-}
 func edgeIterMergeFrom(nexts ...func() (info Edge, ok bool)) *edgeIterMerge {
 	h := make(edgeIterHeap, 0, len(nexts))
 	for _, next := range nexts {
