@@ -1,0 +1,13 @@
+spec:
+  - name: edge
+    local: true
+    import: github.com/ebonetti/itermerge
+    typeMap:
+      Type:
+        expr: Edge
+  - name: redge
+    local: true
+    import: github.com/ebonetti/itermerge
+    typeMap:
+      Type:
+        expr: rEdge
